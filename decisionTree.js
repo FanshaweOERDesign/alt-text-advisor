@@ -9,7 +9,7 @@
       result.className = "result";
       result.innerHTML = `<div style='text-align: center; margin-bottom: 1em;'><strong>Guidance</strong></div>${question.text}`;
       app.appendChild(result);
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      result.scrollIntoView(isEmbedded ? { behavior: 'smooth', block: 'nearest', inline: 'start' } : null);
       return;
     }
 
@@ -54,7 +54,7 @@
     app.appendChild(questionElement);
 
 
-      questionElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      questionElement.scrollIntoView(isEmbedded ? { behavior: 'smooth', block: 'nearest', inline: 'start' } : null);
 
   };
 
@@ -137,9 +137,6 @@
   };
 
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("embed")) {
-    const app = document.getElementById("app");
-    app.style.overflowY = "scroll";
-  }
+  const isEmbedded = urlParams.get("embed");
   queryUser(tree);
 })();
