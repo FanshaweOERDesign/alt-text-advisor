@@ -15,45 +15,46 @@
     const questionElement = document.createElement("div");
     questionElement.className = "question";
     if (question.text) {
-      
-      
       questionElement.innerHTML = question.text;
-
     }
 
     const options = Object.keys(question).filter(
       (option) =>
-        option !== "text" && option !== "type" && option !== "buttonText" && option !== "isRoot"
+        option !== "text" &&
+        option !== "type" &&
+        option !== "buttonText" &&
+        option !== "isRoot"
     );
     for (const option of options) {
       const button = document.createElement("button");
       button.innerHTML = question[option].buttonText;
       button.onclick = () => {
-        const buttons = document.getElementById('app').getElementsByTagName("button");
+        const buttons = document
+          .getElementById("app")
+          .getElementsByTagName("button");
         button.disabled = true;
         for (const btn of buttons) {
-            if (btn.disabled === false) {
-              btn.classList.add('remove');
-            }
-        };
-        
+          if (btn.disabled === false) {
+            btn.classList.add("remove");
+          }
+        }
+
         queryUser(question[option]);
-    };
-    questionElement.appendChild(button);
-      
+      };
+      questionElement.appendChild(button);
     }
 
     if (!question.isRoot) {
-
-        const connector = document.createElement("div");
-        connector.className = "connector";
-        app.appendChild(connector);
+      const connector = document.createElement("div");
+      connector.className = "connector";
+      app.appendChild(connector);
     }
-      
-    
+
     app.appendChild(questionElement);
-    questionElement.scrollIntoView();
-    
+
+    if (!isEmbedded) {
+      questionElement.scrollIntoView();
+    }
   };
 
   const tree = {
@@ -134,5 +135,7 @@
     },
   };
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const isEmbedded = urlParams.get("embed");
   queryUser(tree);
 })();
