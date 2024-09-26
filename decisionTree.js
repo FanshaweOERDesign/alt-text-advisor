@@ -51,10 +51,7 @@
     }
 
     app.appendChild(questionElement);
-
-    if (!isEmbedded) {
-      questionElement.scrollIntoView();
-    }
+    questionElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
   };
 
   const tree = {
