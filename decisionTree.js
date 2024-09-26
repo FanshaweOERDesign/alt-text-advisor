@@ -139,7 +139,7 @@
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get("embed")) {
     const app = document.getElementById("app");
-    app.style.overflowY = "auto";
+    app.style.overflowY = "scroll";
   }
   queryUser(tree);
 })();
