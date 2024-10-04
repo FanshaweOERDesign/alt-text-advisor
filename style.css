@@ -42,7 +42,7 @@ code {
 
 .result {
     background-color: var(--result-background-color);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 @keyframes fadeIn {
