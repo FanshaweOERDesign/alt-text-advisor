@@ -22,8 +22,7 @@ body {
     margin-top: 50px;
     padding: 1em;
     background-color: white;
-    border-radius: 15px;
-    width: 30rem;
+    width: 100%;
 }
 
 h1 {
@@ -93,6 +92,11 @@ button:disabled {
 @media screen and (max-width: 768px) {
     .question, .result {
         width: 80%;
+    }
+
+    #app {
+        border-radius: 15px;
+        width: 30rem;
     }
 
     body{ 
