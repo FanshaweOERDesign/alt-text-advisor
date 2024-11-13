@@ -97,7 +97,8 @@ button:disabled {
 
     #app {
         border-radius: 0;
-        width: 96%;
+        width: 80%;
+        min-width: fit-content;
     }
 
     body{ 
